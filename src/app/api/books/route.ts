@@ -35,6 +35,8 @@ export async function POST(request: Request) {
 // PUT Method
 export async function PUT(request: Request) {
   try {
+
+
     const { id, title, author, available, image } = await request.json();
     const bookIndex = books.findIndex((book) => book.id === id);
 
@@ -44,6 +46,8 @@ export async function PUT(request: Request) {
 
     books[bookIndex] = { id, title, author, available, image };
     return NextResponse.json(books[bookIndex], { status: 200 });
+
+    
   } catch (error) {
     return NextResponse.json({ message: "Error updating book" }, { status: 500 });
   }
